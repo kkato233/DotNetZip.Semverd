@@ -1,3 +1,22 @@
+
+## How to fix CVE-2024-48510
+
+Follow the steps below to add the package.
+
+Access the page https://github.com/settings/tokens with your GitHub account and create a `personal access token (classic)` with `read:packages` permission.
+
+Next, use your GitHub account name and the above token to configure the settings to refer to the [package](https://github.com/kkato233?tab=packages) published on GitHub.
+
+```
+dotnet nuget add source --username [your GitHub account name] --password [the personal access token (classic) key issued above] --store-password-in-clear-text --name github_kkato233 "https://nuget.pkg.github.com/kkato233/index.json"
+```
+
+Next, update the DotNetZip package to the new version.
+
+```
+dotnet add package DotNetZip --version 1.16.1
+```
+
 ## CVE-2024-48510 の 修正方法
 
 下記の手順で パッケージを 追加します。
@@ -21,7 +40,16 @@ dotnet add package DotNetZip --version 1.16.1
 
 これで CVE-2024-48510 対応が完了します。
 
+### How to retrieve the package in Github Actions
+
+
+```
+dotnet nuget add source --username [your GitHub account name] --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github_kkato233 "https://nuget.pkg.github.com/kkato233/index.json"
+```
+Please do this.
+
 ### Github Actions の中で パッケージ取得する場合は
+
 
 ```
 dotnet nuget add source --username [あなたのgithubアカウント名] --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github_kkato233 "https://nuget.pkg.github.com/kkato233/index.json"
