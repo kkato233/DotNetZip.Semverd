@@ -1,3 +1,34 @@
+## CVE-2024-48510 の 修正方法
+
+下記の手順で パッケージを 追加します。
+
+あなたの github アカウントで https://github.com/settings/tokens のページにアクセスして
+
+`read:packages` の権限を持った `personal access token (classic)` を作成してください。
+
+次に あなたの github のアカウント名と 上記 トークンを使って
+github に公開された [パッケージ](https://github.com/kkato233?tab=packages)を 参照する設定をします。
+
+```
+dotnet nuget add source --username [あなたのgithubアカウント名] --password [上記で発行した personal access token(classic) キー] --store-password-in-clear-text --name github_kkato233 "https://nuget.pkg.github.com/kkato233/index.json"
+```
+
+次に DotNetZip パッケージを 新しいバージョンに 更新します。
+
+```
+dotnet add package DotNetZip --version 1.16.1
+```
+
+これで CVE-2024-48510 対応が完了します。
+
+### Github Actions の中で パッケージ取得する場合は
+
+```
+dotnet nuget add source --username [あなたのgithubアカウント名] --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github_kkato233 "https://nuget.pkg.github.com/kkato233/index.json"
+```
+としてください。
+
+
 ## Repository archived
 
 This repository was created before `System.IO.Compression` and the code is unmaintained
