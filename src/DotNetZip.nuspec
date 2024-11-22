@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>DotNetZip</id>
+    <version>1.16.1</version>
+    <title>DotNetZip</title>
+    <authors>Henrik/Dino Chiesa</authors>
+    <licenseUrl>https://raw.githubusercontent.com/haf/DotNetZip.Semverd/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/haf/DotNetZip.Semverd</projectUrl>
+    <description>A fork of the DotNetZip project without signing with a solution that compiles cleanly. This project aims to follow semver to avoid versioning conflicts. DotNetZip is a FAST, FREE class library and toolset for manipulating zip files. Use VB, C# or any .NET language to easily create, extract, or update zip files.</description>
+    <summary>A library for dealing with zip, bzip and zlib from .Net</summary>
+    <releaseNotes>Full version: 1.16.1.0</releaseNotes>
+    <repository type="git" url="https://github.com/kkato233/DotNetZip.Semverd.git" />
+    <copyright>Dino Chiesa</copyright>
+    <language>en-GB</language>
+    <dependencies>
+      <group targetFramework="net40" />
+      <group targetFramework="netstandard2.0">
+        <dependency id="System.Security.Permissions" version="4.7.0" />
+        <dependency id="System.Text.Encoding.CodePages" version="4.7.1" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+
+    <file src="ListContents\bin\Release\netcoreapp2.0\DotNetZip.dll" target="lib\net40" />
+    <file src="ListContents\bin\Release\netcoreapp2.0\DotNetZip.xml" target="lib\net40" />
+    <file src="ListContents\bin\Release\netcoreapp2.0\DotNetZip.pdb" target="lib\net40" />
+
+	<file src="Zip\bin\Release\DotNetZip.dll" target="lib\netstandard2.0" />
+    <file src="Zip\bin\Release\DotNetZip.xml" target="lib\netstandard2.0" />
+	<file src="Zip\bin\Release\DotNetZip.pdb" target="lib\netstandard2.0" />
+  </files>
+</package>
